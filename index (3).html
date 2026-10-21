@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manufaktura ziołowa Agaty – naturalne kosmetyki z serca i tradycji</title>
+<meta name="description" content="Ręcznie przygotowywane sole do kąpieli z solą Epsom i własnymi maceratami: lawenda, rozmaryn, sosna. Małe partie, prosty skład. Gniezno.">
+<meta property="og:title" content="Manufaktura ziołowa Agaty">
+<meta property="og:description" content="Naturalne kosmetyki z serca i tradycji. Sól Epsom z własnym maceratem – lawenda, rozmaryn, sosna.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#2f4a3a">
+<link rel="icon" href="https://i.ibb.co/39Dx3ryG/738570635-122131459641001718-5716006097217281090-n.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#24322a; --muted:#5d6b62; --paper:#f5f6f1; --line:#d9ddd3;
+  --pine:#2f4a3a;
+  /* motyw aktywnego produktu */
+  --tone:#6b5b8c; --tint:#e9e4f1; --deep:#3f3258;
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Nunito Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.65;font-size:1.0625rem;transition:background .5s}
+body[data-p="lawenda"]{--tone:#6b5b8c;--tint:#e9e4f1;--deep:#3f3258}
+body[data-p="rozmaryn"]{--tone:#5c7a4e;--tint:#e3ebdc;--deep:#34502b}
+body[data-p="sosna"]{--tone:#2f5a4d;--tint:#dde8e3;--deep:#1d3a31}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--tone);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.25rem}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;letter-spacing:-.01em}
+h2{font-size:clamp(1.7rem,4vw,2.4rem);margin-bottom:1rem}
+
+header{position:sticky;top:0;z-index:10;background:rgba(245,246,241,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-top:.7rem;padding-bottom:.7rem}
+.brand{font-family:var(--serif);font-weight:600;text-decoration:none;font-size:1.1rem}
+nav{display:flex;gap:1.1rem;font-size:.95rem;font-weight:600}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+
+.hero{padding:clamp(3rem,9vw,6.5rem) 0 clamp(2.5rem,6vw,4rem)}
+.hero .wrap{display:grid;gap:2.5rem;grid-template-columns:1.15fr .85fr;align-items:center}
+.hero h1{font-size:clamp(2.4rem,6.4vw,4.4rem);margin-bottom:1.2rem}
+.hero h1 em{font-style:italic;font-weight:400;color:var(--tone);transition:color .5s}
+.hero p.lead{font-size:1.2rem;color:var(--muted);max-width:34em;margin-bottom:1.6rem}
+.words{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.8rem;font-family:var(--serif);font-style:italic;color:var(--pine)}
+.words span+span::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--tone);margin-right:.6rem;vertical-align:middle}
+.btn{display:inline-block;padding:.8rem 1.5rem;border-radius:999px;background:var(--pine);color:#fff;text-decoration:none;font-weight:700;border:2px solid var(--pine);transition:background .2s}
+.btn:hover{background:var(--ink);border-color:var(--ink)}
+.btn.ghost{background:transparent;color:var(--pine);margin-left:.5rem}
+.btn.ghost:hover{background:var(--pine);color:#fff}
+
+/* słoik – element charakterystyczny */
+.jar{justify-self:center;width:min(100%,300px)}
+.jar svg{width:100%;height:auto;display:block}
+.jar .glass{fill:var(--tint);transition:fill .5s}
+.jar .lid{fill:var(--deep);transition:fill .5s}
+.jar .label{fill:var(--paper)}
+.jar .salt{fill:#fff;opacity:.8}
+.jar text{font-family:var(--serif)}
+
+section{padding:clamp(2.8rem,7vw,5rem) 0}
+.products{background:var(--tint);transition:background .5s}
+.tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin:1.5rem 0 1.8rem}
+.tabs button{font:inherit;font-weight:700;cursor:pointer;padding:.65rem 1.2rem;border-radius:999px;border:2px solid var(--deep);background:transparent;color:var(--deep);transition:background .2s,color .2s}
+.tabs button[aria-selected="true"]{background:var(--deep);color:#fff}
+.panel{display:grid;grid-template-columns:1fr 1fr;gap:2rem;background:var(--paper);border-radius:6px;padding:clamp(1.4rem,4vw,2.5rem);border-left:8px solid var(--tone);transition:border-color .5s}
+.panel[hidden]{display:none}
+.panel h3{font-size:1.9rem;margin-bottom:.6rem;color:var(--deep)}
+.panel p{color:var(--muted)}
+dl{display:grid;grid-template-columns:auto 1fr;gap:.5rem 1.2rem;align-content:start}
+dt{color:var(--muted)}
+dd{font-weight:700}
+.price{font-family:var(--serif);font-size:2.2rem;color:var(--deep)}
+.panel .btn{margin-top:1.2rem}
+.note{margin-top:1.4rem;color:var(--deep);font-size:.98rem}
+
+.uses{display:grid;grid-template-columns:repeat(3,1fr);gap:2.2rem}
+.uses h3{font-size:1.35rem;margin-bottom:.7rem;padding-bottom:.5rem;border-bottom:2px solid var(--tone);transition:border-color .5s}
+.uses ul{padding-left:1.1rem;color:var(--muted)}
+.uses li{margin-bottom:.4rem}
+.uses li::marker{color:var(--tone)}
+
+.about{background:var(--pine);color:#eef1ea}
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.about h2{color:#fff}
+.about p{color:#d3dccf;max-width:36em}
+.about ul{list-style:none;padding:0;display:grid;gap:1rem;font-family:var(--serif);font-size:1.25rem}
+.about li{padding:1rem 0;border-bottom:1px solid rgba(255,255,255,.2)}
+.about li small{display:block;font-family:var(--sans);font-size:.95rem;color:#b9c5b5}
+
+.contact .box{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.contact address{font-style:normal}
+.contact address p{margin-bottom:.4rem}
+.contact a{font-weight:700;text-underline-offset:3px}
+
+footer{padding:1.6rem 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+
+@media (max-width:820px){
+  .hero .wrap,.panel,.uses,.about .wrap,.contact .box{grid-template-columns:1fr}
+  .jar{width:200px;order:-1;justify-self:start}
+  nav{gap:.8rem;font-size:.88rem}
+  .btn.ghost{margin-left:0;margin-top:.6rem}
+}
+@media (max-width:480px){.brand{font-size:.95rem}nav a:nth-child(3){display:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body data-p="lawenda">
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">Manufaktura ziołowa Agaty</a>
+    <nav aria-label="Menu główne">
+      <a href="#oferta">Oferta</a>
+      <a href="#zastosowanie">Zastosowanie</a>
+      <a href="#o-mnie">O manufakturze</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Naturalne kosmetyki z serca i&nbsp;<em>tradycji</em></h1>
+        <p class="lead">Z pasją zbieram, suszę i tworzę naturalne produkty z ziół: od aromatycznych herbat, przez kremy i maści, aż po ziołowe poduszki czy kąpielowe woreczki. Każdy wyrób powstaje ręcznie, z sercem, w zgodzie z rytmem przyrody.</p>
+        <p class="words" aria-label="Prostota, natura, pielęgnacja"><span>prostota</span><span>natura</span><span>pielęgnacja</span></p>
+        <a class="btn" href="#oferta">Zobacz nowość</a>
+        <a class="btn ghost" href="#kontakt">Napisz do mnie</a>
+      </div>
+      <div class="jar" aria-hidden="true">
+        <svg viewBox="0 0 240 300">
+          <rect class="lid" x="52" y="14" width="136" height="42" rx="6"/>
+          <rect class="glass" x="34" y="56" width="172" height="228" rx="22"/>
+          <path class="salt" d="M40 110c30-14 60 10 90 0s50-12 70 0v158a16 16 0 0 1-16 16H56a16 16 0 0 1-16-16z"/>
+          <rect class="label" x="58" y="130" width="124" height="110" rx="4"/>
+          <text id="jarName" x="120" y="176" text-anchor="middle" font-size="22" font-weight="600" fill="#2f4a3a">Lawenda</text>
+          <text x="120" y="204" text-anchor="middle" font-size="13" font-style="italic" fill="#5d6b62">sól Epsom + macerat</text>
+          <text x="120" y="224" text-anchor="middle" font-size="12" fill="#5d6b62">200 g</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <section class="products" id="oferta">
+    <div class="wrap">
+      <h2>Nowość: naturalna sól Epsom z własnym maceratem</h2>
+      <p>Idealna dla zmęczonych stóp po pielgrzymce lub wymagającej wyprawie. Ręcznie przygotowywane sole do kąpieli na bazie soli Epsom i własnych maceratów roślinnych. Każda mieszanka powstaje małymi partiami, z dbałością o prosty, naturalny skład i estetykę.</p>
+
+      <div class="tabs" role="tablist" aria-label="Wybierz zapach">
+        <button role="tab" id="t-lawenda" aria-controls="p-lawenda" aria-selected="true" data-k="lawenda">Lawenda</button>
+        <button role="tab" id="t-rozmaryn" aria-controls="p-rozmaryn" aria-selected="false" data-k="rozmaryn" tabindex="-1">Rozmaryn</button>
+        <button role="tab" id="t-sosna" aria-controls="p-sosna" aria-selected="false" data-k="sosna" tabindex="-1">Sosna</button>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-lawenda" aria-labelledby="t-lawenda">
+        <div>
+          <h3>Lawenda</h3>
+          <p>Delikatna, kwiatowa kompozycja z maceratem lawendowym i suszonymi kwiatami lawendy.</p>
+        </div>
+        <div>
+          <dl><dt>Pojemność</dt><dd>200 g</dd><dt>Cena</dt><dd class="price">40 zł / szt.</dd></dl>
+          <a class="btn" href="mailto:agatapukacz@gmail.com?subject=Zamówienie%3A%20sól%20Epsom%20lawenda">Zamów lawendę</a>
+        </div>
+      </div>
+      <div class="panel" role="tabpanel" id="p-rozmaryn" aria-labelledby="t-rozmaryn" hidden>
+        <div>
+          <h3>Rozmaryn</h3>
+          <p>Świeża, ziołowa kompozycja z własnym maceratem rozmarynowym.</p>
+        </div>
+        <div>
+          <dl><dt>Pojemność</dt><dd>200 g</dd><dt>Cena</dt><dd class="price">40 zł / szt.</dd></dl>
+          <a class="btn" href="mailto:agatapukacz@gmail.com?subject=Zamówienie%3A%20sól%20Epsom%20rozmaryn">Zamów rozmaryn</a>
+        </div>
+      </div>
+      <div class="panel" role="tabpanel" id="p-sosna" aria-labelledby="t-sosna" hidden>
+        <div>
+          <h3>Sosna</h3>
+          <p>Prosta, leśna kompozycja z własnym maceratem sosnowym.</p>
+        </div>
+        <div>
+          <dl><dt>Pojemność</dt><dd>200 g</dd><dt>Cena</dt><dd class="price">40 zł / szt.</dd></dl>
+          <a class="btn" href="mailto:agatapukacz@gmail.com?subject=Zamówienie%3A%20sól%20Epsom%20sosna">Zamów sosnę</a>
+        </div>
+      </div>
+
+      <p class="note">Sól zapakowana jest w eleganckie opakowanie, dzięki czemu może być również miłym, naturalnym upominkiem. 🎁</p>
+    </div>
+  </section>
+
+  <section id="zastosowanie">
+    <div class="wrap">
+      <h2>Do czego używać</h2>
+      <div class="uses">
+        <div>
+          <h3>Stopy i ciało</h3>
+          <ul>
+            <li>kąpiel dla zmęczonych stóp</li>
+            <li>przyjemne rozgrzanie i odprężenie po wysiłku</li>
+            <li>pielęgnacja skóry</li>
+            <li>kąpiel po aktywnym dniu</li>
+            <li>delikatne złuszczanie, gdy używasz soli jako peelingu</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Mięśnie</h3>
+          <ul>
+            <li>regeneracja i relaks po wysiłku</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Twarz</h3>
+          <ul>
+            <li>usuwa martwy naskórek dzięki mechanicznemu działaniu kryształków</li>
+            <li>wygładza powierzchnię skóry</li>
+            <li>pomaga usunąć część zanieczyszczeń i nadmiaru sebum</li>
+            <li>po peelingu skóra bywa bardziej miękka i gładka w dotyku</li>
+            <li>może przygotować skórę do dalszej pielęgnacji</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="o-mnie">
+    <div class="wrap">
+      <div>
+        <h2>Z rytmem przyrody</h2>
+        <p>Zioła zbieram i suszę sama. Z nich powstają herbaty, kremy, maści, ziołowe poduszki, kąpielowe woreczki oraz własne maceraty, na których opieram sole do kąpieli. Pracuję powoli i w małych ilościach, żeby każdy wyrób był przygotowany z uwagą.</p>
+      </div>
+      <ul>
+        <li>Mała partia<small>przygotowywana w niewielkiej ilości</small></li>
+        <li>Własne maceraty<small>lawenda, rozmaryn, sosna</small></li>
+        <li>Ręczne przygotowanie<small>z sercem, od zbioru do opakowania</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="contact" id="kontakt">
+    <div class="wrap">
+      <h2>Zapraszam</h2>
+      <div class="box">
+        <p>Zamówienia przyjmuję mailowo, a więcej ofert znajdziesz na moim profilu na Facebooku.</p>
+        <address>
+          <p><strong>Manufaktura ziołowa Agaty</strong></p>
+          <p>Gniezno 62-200</p>
+          <p><a href="mailto:agatapukacz@gmail.com">agatapukacz@gmail.com</a></p>
+          <p><a href="https://www.facebook.com/profile.php?id=61580051558475" target="_blank" rel="noopener">Facebook: więcej ofert</a></p>
+        </address>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="y">2026</span> Manufaktura ziołowa Agaty · Gniezno</div>
+</footer>
+
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));
+  var jar=document.getElementById('jarName');
+  document.getElementById('y').textContent=new Date().getFullYear();
+  function select(t,focus){
+    tabs.forEach(function(b){
+      var on=b===t;
+      b.setAttribute('aria-selected',on);
+      b.tabIndex=on?0:-1;
+      document.getElementById(b.getAttribute('aria-controls')).hidden=!on;
+    });
+    document.body.dataset.p=t.dataset.k;
+    jar.textContent=t.textContent;
+    if(focus)t.focus();
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){select(t)});
+    t.addEventListener('keydown',function(e){
+      var n=null;
+      if(e.key==='ArrowRight')n=tabs[(i+1)%tabs.length];
+      if(e.key==='ArrowLeft')n=tabs[(i+tabs.length-1)%tabs.length];
+      if(n){e.preventDefault();select(n,true)}
+    });
+  });
+})();
+</script>
+</body>
+</html>
